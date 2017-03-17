@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subProjetos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b588db83-4f72-4514-a1ac-96e53fcc8e9d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cargaHoraria" class="java.lang.Integer">
+		<fieldDescription><![CDATA[cargaHoraria]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="fimParticipacao" class="java.util.Calendar">
+		<fieldDescription><![CDATA[fimParticipacao]]></fieldDescription>
+	</field>
+	<field name="funcionario" class="br.com.devmedia.beans.Funcionario">
+		<fieldDescription><![CDATA[funcionario]]></fieldDescription>
+	</field>
+	<field name="gestor" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[gestor]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="inicioParticipacao" class="java.util.Calendar">
+		<fieldDescription><![CDATA[inicioParticipacao]]></fieldDescription>
+	</field>
+	<field name="projeto" class="br.com.devmedia.beans.Projeto">
+		<fieldDescription><![CDATA[projeto]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="295" height="20" uuid="28568505-0fec-4fa0-8e7c-77173d82e057"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Funcionario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="0" width="100" height="20" uuid="701aefb8-717f-4f99-a496-0bd8d3f734c0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Inicio Participação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="0" width="100" height="20" uuid="63693a20-979e-444d-a423-438d7a4adf4e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fim Participação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="0" width="100" height="20" uuid="68d93118-6330-4a76-bbda-718bb8b8bdd1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Gestor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="295" height="20" uuid="29dfd757-45f0-4597-8654-447b45138204"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{funcionario}.getNome()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="295" y="0" width="100" height="20" uuid="4d8d96c1-580d-480d-a611-bae6d4211e18"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{inicioParticipacao}.getTime()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="395" y="0" width="100" height="20" uuid="92691c11-54d5-4b0c-b00b-d847c4436fab"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fimParticipacao}.getTime()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="495" y="0" width="100" height="20" uuid="964f3e36-e638-4fbd-8385-5a3f7114f122"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{gestor} == true ? "Sim" : "Não"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
